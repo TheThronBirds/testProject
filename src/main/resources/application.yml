@@ -1,0 +1,13 @@
+luzejin:
+  dataSource1:
+    jdbcUrl: jdbc:oracle:thin:@localhost:1521:RISKNEW
+    username: riskdev
+    password: 123
+    driverClassName: oracle.jdbc.OracleDriver
+  dataSource2:
+    jdbcUrl: jdbc:oracle:thin:@localhost:1521:RISKNEW
+    username: fmp
+    password: 123
+    driverClassName: oracle.jdbc.OracleDriver
+  kafka:
+    brokerAddress: localhost:9092
