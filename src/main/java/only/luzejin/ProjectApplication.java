@@ -1,6 +1,7 @@
 package only.luzejin;
 
 import only.luzejin.kafka.KafkaTopic;
+import only.luzejin.service.testService;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.mybatis.spring.annotation.MapperScan;
@@ -26,8 +27,9 @@ import java.util.UUID;
 @MapperScan(basePackages = {"only.luzejin.repository"}, annotationClass = Repository.class)
 public class ProjectApplication implements CommandLineRunner {
 
+
     @Autowired
-    private KafkaProducer<String,String> kafkaProducer;
+    private only.luzejin.service.testService testService;
 
     public static void main(String[] args) {
 
@@ -40,8 +42,9 @@ public class ProjectApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        String code = UUID.randomUUID().toString();
+        /*String code = UUID.randomUUID().toString();
         ProducerRecord<String,String> producerRecord = new ProducerRecord<String, String>("test",code,"luzejin");
-        kafkaProducer.send(producerRecord);
+        kafkaProducer.send(producerRecord);*/
+        testService.test();
     }
 }

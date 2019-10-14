@@ -1,6 +1,7 @@
 package only.luzejin.service;
 
 import lombok.extern.slf4j.Slf4j;
+import only.luzejin.config.kafkaCondition;
 import only.luzejin.kafka.CountProcessor;
 import only.luzejin.kafka.KafkaTopic;
 import only.luzejin.kafka.MyProcessor;
@@ -13,6 +14,8 @@ import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.state.Stores;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -28,6 +31,7 @@ import java.util.UUID;
  **/
 @Slf4j
 @Component
+@Conditional(kafkaCondition.class)
 public class kafkaStream implements CommandLineRunner {
 
     @Value("${luzejin.kafka.brokerAddress}")
@@ -52,11 +56,18 @@ public class kafkaStream implements CommandLineRunner {
                         log.error("数据引擎 接收 消息失败 ：{}",e.getMessage());
                     }
                 });
-        streamsBuilder.*/
-        //TopologyBuilder builder = new TopologyBuilder();
+        /*streamsBuilder.*/
+
+
         Topology topology = streamsBuilder.build();
         topology.addSource("test-topic","test");
         topology.addProcessor("test-processor", CountProcessor::new,"test-topic");
+        topology.addStateStore(Stores.keyValueStoreBuilder(
+                //指定state-store的名字，运行时会自动在前面配置的STATE_DIR_CONFIG路径下创建该文件夹
+                Stores.persistentKeyValueStore("Counts"),
+                Serdes.String(),
+                Serdes.Long())
+                .withCachingEnabled(),"test-processor");
         //topology.addStateStore(Stores.inMemoryKeyValueStore("Counts"));
         //topology.addStateStore(Stores.create("COUNTS").withStringKeys().withStringValues().inMemory().build(), "PROCESS1");
         topology.addSink("test2-topic","test2","test-processor");

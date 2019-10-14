@@ -1,9 +1,11 @@
 package only.luzejin.kafka;
 
+import only.luzejin.config.kafkaCondition;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Collections;
@@ -18,6 +20,7 @@ import java.util.Properties;
  * 创建时间2019/9/25 0:26
  **/
 @Configuration
+@Conditional(kafkaCondition.class)
 public class kafkaConfig {
 
 

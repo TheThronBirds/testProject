@@ -1,4 +1,5 @@
 luzejin:
+  config: kafka
   dataSource1:
     jdbcUrl: jdbc:oracle:thin:@localhost:1521:RISKNEW
     username: riskdev
