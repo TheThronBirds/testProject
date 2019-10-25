@@ -35,6 +35,13 @@
             <version>1.0.11</version>
         </dependency>
 
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
@@ -87,7 +94,7 @@
         <dependency>
             <groupId>com.github.noraui</groupId>
             <artifactId>ojdbc8</artifactId>
-            <version>${ojdbc8.version}</version>
+            <version>12.2.0.1</version>
         </dependency>
 
         <!--切面-->

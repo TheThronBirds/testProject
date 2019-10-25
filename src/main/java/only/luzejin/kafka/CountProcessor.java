@@ -26,7 +26,6 @@ public class CountProcessor implements Processor<String,String> {
     @Override
     public void init(ProcessorContext processorContext) {
         this.processorContext = processorContext;
-
         this.processorContext.schedule(1000, PunctuationType.WALL_CLOCK_TIME, new Punctuator() {
             @Override
             public void punctuate(long l) {
@@ -34,7 +33,7 @@ public class CountProcessor implements Processor<String,String> {
 
                 while (iter.hasNext()) {
                     KeyValue<String, Long> entry = iter.next();
-                    processorContext.forward(entry.key, entry.value.toString() + "-CountProcessor");
+                    processorContext.forward(entry.key + "-CountProcessor", entry.value.toString());
                 }
 
                 iter.close();

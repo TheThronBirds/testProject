@@ -24,10 +24,10 @@ import java.util.UUID;
  **/
 @SpringBootApplication
 @MapperScan(basePackages = {"only.luzejin.repository"}, annotationClass = Repository.class)
-public class ProjectApplication implements CommandLineRunner {
+public class ProjectApplication{
 
-    @Autowired
-    private KafkaProducer<String,String> kafkaProducer;
+    //@Autowired
+    //private KafkaProducer<String,String> kafkaProducer;
 
     public static void main(String[] args) {
 
@@ -38,10 +38,10 @@ public class ProjectApplication implements CommandLineRunner {
 
     }
 
-    @Override
+    /*@Override
     public void run(String... strings) throws Exception {
         String code = UUID.randomUUID().toString();
         ProducerRecord<String,String> producerRecord = new ProducerRecord<String, String>("test",code,"luzejin");
         kafkaProducer.send(producerRecord);
-    }
+    }*/
 }

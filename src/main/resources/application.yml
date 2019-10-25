@@ -1,13 +1,13 @@
 luzejin:
   dataSource1:
-    jdbcUrl: jdbc:oracle:thin:@localhost:1521:RISKNEW
+    jdbcUrl: jdbc:oracle:thin:@10.71.21.151:1521:jytest
     username: riskdev
-    password: 123
+    password: riskdev_2018
     driverClassName: oracle.jdbc.OracleDriver
   dataSource2:
-    jdbcUrl: jdbc:oracle:thin:@localhost:1521:RISKNEW
-    username: fmp
-    password: 123
+    jdbcUrl: jdbc:oracle:thin:@10.71.21.151:1521:jytest
+    username: riskdev
+    password: riskdev_2018
     driverClassName: oracle.jdbc.OracleDriver
   kafka:
-    brokerAddress: localhost:9092
+    brokerAddress: 10.71.21.237:9092
