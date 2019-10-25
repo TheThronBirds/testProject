@@ -25,20 +25,6 @@ public class testController {
     @Autowired
     private testService testService;
 
-    @RequestMapping("test1")
-    public void test1(){
-        List<String> names =  testService.getAllName();
-        log.info(names.toString());
-    }
-
-    @RequestMapping("test2")
-    public void test2(){
-        tenant t = new tenant("WUDX");
-        tenantUtil.setTenant(t);
-        List<String> names = testService.getAllName();
-
-        log.info(names.toString());
-    }
 }
 
 

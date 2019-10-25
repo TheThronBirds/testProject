@@ -96,4 +96,27 @@ public class DatasourceConfig {
     }
 
 
+    @Bean(value = "riskJdbcOpreation")
+    @Primary
+    public JdbcOperations riskJdbcOperation(){
+        return new JdbcTemplate(getDataSource1());
+    }
+
+    @Bean(value = "fmpJdbcOperation")
+    public JdbcOperations fmpJdbcOperation(){
+        return new JdbcTemplate(getDataSource2());
+    }
+
+    @Bean("fmpTransactionManager")
+    public PlatformTransactionManager fmpTransactionManager(){
+        return new DataSourceTransactionManager(getDataSource2());
+    }
+
+    @Bean("riskTransactionManager")
+    @Primary
+    public PlatformTransactionManager riskTransactionManager(){
+        return new DataSourceTransactionManager(getDataSource1());
+    }
+
+
 }
