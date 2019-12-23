@@ -12,3 +12,11 @@ luzejin:
     driverClassName: oracle.jdbc.OracleDriver
   kafka:
     brokerAddress: 10.71.21.237:9092
+
+
+spring:
+  rabbitmq:
+    host: 10.71.22.45
+    port: 5672
+    username: yhfin
+    password: yhfin

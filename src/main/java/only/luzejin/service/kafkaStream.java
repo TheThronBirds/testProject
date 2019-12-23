@@ -47,6 +47,7 @@ public class kafkaStream implements CommandLineRunner {
         props.put("deserializer.encoding","UTF-8");
         props.put("auto.offset.reset", "latest");
         final StreamsBuilder streamsBuilder = new StreamsBuilder();
+        //streamsBuilder.stream(KafkaTopic.test).foreach();
         /*streamsBuilder.stream(KafkaTopic.test)
                 .foreach((key,value)->{
                     try {
