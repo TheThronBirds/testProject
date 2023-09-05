@@ -17,7 +17,7 @@
         <spring-boot.version>1.5.16.RELEASE</spring-boot.version>
         <ojdbc8.version>12.2.0.1</ojdbc8.version>
         <akka.version>2.5.21</akka.version>
-        <kafka.version>2.2.1</kafka.version>
+        <kafka.version>2.6.3</kafka.version>
     </properties>
 
 
